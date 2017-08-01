@@ -7,7 +7,7 @@ class User < ApplicationRecord
 					  format: {with: VALID_EMAIL_REGEX}, #permet de valider que l'email n'est pas vide
 					  uniqueness: {case_sensitive: false}
 	has_secure_password
-	validates :password, presence: true, length: {minimum: 6}
+	validates :password, presence: true, length: {minimum: 6}, allow_nil: true #Uniquement quand on veut faire des edits d'utilisateur grace à la fonction has_secure_password
 
 	 # Returns the hash digest of the given string.
 	class << self
